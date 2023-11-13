@@ -1,0 +1,347 @@
+/* Color Scheme (Taken from the "Campus Division Look
+and Feel Guidelines"). Global variables are used for maintainability */
+
+
+:root {
+    --primary-pallete_dark-lime: #53682B;
+    --primary-pallete_bright-lime: #BED600;
+
+    --secondary-pallete_dark-aqua: #00434F;
+    --secondary-pallete_bright-aqua: #00C0B5;
+
+    --pallete_cool-grey: #E5E6E5;
+    --pallete_white:  #FFFFFF;
+
+    --university_designated-font: 'Arial';
+    --campus-divison_fallback-font: "Arial";
+}
+
+
+html{
+    /*We use this for rems instead of em, in the case that em breaks*/
+    font-size: 6px;
+}
+/*Default font (if there are no media queries)*/
+body{
+    /*We set this font size very small so we can express all other font
+    sizes in terms of multiples of em easily. We can also change this so we can
+    have more maintainable responsive styling*/
+    font-size: 6px;
+    font-family: var(--university_designated-font),var(--campus-divison_fallback-font);
+
+}
+
+.wrapper{
+    display: grid;
+    grid-auto-rows: auto;
+
+    grid-gap: 4em;
+}
+
+/*We define styling for the top part of the page*/
+.uni-stats-wrapper {
+    position: relative;
+
+    width: auto;
+    height: auto;
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: auto;
+
+    /*We make gaps between entries to show clear division between them*/
+    grid-gap: 4em;
+
+}
+
+/*Make all spans stack on top of each other*/
+.uni-stats-wrapper span{
+    display: block;
+}
+
+/*We define the stylijng of the title cards*/
+.uni-stats-wrapper .title{
+    background-color: var(--primary-pallete_dark-lime);
+
+    font-size: 4em;
+    font-weight: bold;
+    text-align: center;
+
+    padding: 1em 0 1em 0;
+}
+
+.uni-stats-wrapper .text-body{
+    font-size: 3em;
+    padding: 0.5em;
+}
+
+
+.uni-stats-wrapper .general-uni-stats{
+    background-color: var(--pallete_cool-grey);
+
+    grid-column: span 2;
+    grid-row: span 1;
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+
+    /*If the table overflows then it will show the scroll bar horizontally only when it scrolls*/
+    overflow-x: auto;
+
+}
+
+/*We style the table container*/
+.uni-stats-wrapper .general-uni-stats .stats-table{
+    /*Make table width not the entire way to establish a hierarchy*/
+    width: 95%;
+    padding: 2em 2.5% 2em 2.5%;
+
+    /*Make the table centered vertically*/
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+
+/*We style the table itself*/
+.uni-stats-wrapper .general-uni-stats table{
+    background-color: var(--pallete_white);
+
+    font-size: 3em;
+    text-align: center;
+
+    width: 100%;
+    border: 0.5rem solid black;
+    border-collapse: collapse;
+
+}
+
+.uni-stats-wrapper .general-uni-stats table th{
+    background-color: var(--primary-pallete_dark-lime);
+    border: 0.25rem solid black;
+    border-bottom: 0.5rem solid black;
+}
+
+
+.uni-stats-wrapper .general-uni-stats table table tr{
+    border: 0.25rem solid black;
+}
+
+
+.uni-stats-wrapper .uni-graph{
+    background-color: var(--pallete_cool-grey);
+    grid-column: span 1;
+    grid-row: span 1;
+    width: 100%;
+}
+
+/*Make sure the image stretches horizontally across the span*/
+.uni-stats-wrapper .uni-graph img{
+    width: 100%;
+}
+
+/*We style the client link page*/
+.uni-stats-wrapper .client-link{
+    grid-column: span 2;
+    grid-row: span 1;
+
+    width:  100%;
+
+    text-decoration: underline;
+}
+
+.query-wrapper{
+    position: relative;
+
+    width: auto;
+    height: auto;
+
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+
+    /*We make gaps between entries to show clear division between them*/
+    grid-gap: 4em;
+
+    /*We make gaps between entries to show clear division between them*/
+}
+
+/*Includes the search bar and the search button*/
+.query-wrapper .search-bar{
+    align-items: center;
+    text-align: center;
+    grid-column: span 1;
+    grid-row: span 1;
+
+}
+
+.query-wrapper #searchbar{
+    /*If not flex then the button will wrap to the next line*/
+    display: flex;
+
+    /*Align the search bar and button to the center*/
+    justify-content: center;
+    padding: 0 4rem;
+}
+
+/*Internal editing of the search bar properties*/
+.query-wrapper .search-bar input[type=search]{
+    font-size: 4rem;
+    font-weight: bold;
+
+
+    /*Internal padding*/
+    padding: 2rem 1rem;
+
+    border: 0.25rem solid black;
+
+    width: 100%;
+}
+
+.query-wrapper .search-bar button{
+
+    height: 10rem;
+    padding: 1rem;
+    background-color: var(--pallete_white);
+
+    border: 0.25rem solid black;
+}
+
+/*Change color of search bar whenever hovering over the search button*/
+.query-wrapper .search-bar button:hover{
+    background-color: var(--pallete_cool-grey);
+}
+
+.query-wrapper .search-bar img{
+    background: transparent;
+    height: 100%;
+}
+
+.query-wrapper .sort-by{
+
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    grid-column: span 1;
+    grid-row: span 1;
+
+    font-weight: bold;
+    padding: 0 4rem;
+
+
+}
+
+.query-wrapper .sort-by label{
+
+    margin: auto 0;
+    font-size: 4em;
+    font-weight: bold;
+
+    width: 100%;
+}
+
+
+.query-wrapper .sort-by select{
+    font-size: 3rem;
+    font-weight: bold;
+
+    padding: 0.5rem 1rem;
+    border: 0.25rem solid black;
+}
+
+/*Buildings link section*/
+.buildings-wrapper{
+    position: relative;
+
+    width: auto;
+    height: auto;
+
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-auto-rows: auto; /* Automatically decide row height*/
+
+    /*We make gaps between entries to show clear division between them*/
+    grid-gap: 4em;
+
+    /*We make gaps between entries to show clear division between them*/
+}
+
+
+.buildings-wrapper .building{
+    display:  flex;
+    height: auto;
+    width: 100%;
+    border: 0.25rem solid black;
+}
+
+.buildings-wrapper button{
+    border: none;
+    padding: 0;
+
+}
+/*Set hover settings*/
+.buildings-wrapper button:hover{
+    background-color: var(--primary-pallete_bright-lime);
+}
+
+.buildings-wrapper button img{
+    display: block;
+    background: transparent;
+    width: 100%;
+}
+
+.buildings-wrapper .building span{
+    display: block;
+    margin: 2rem 0;
+    font-size: 3rem;
+    font-weight: bold;
+}
+
+/*Responsive styling for the buildings section*/
+@media screen and (min-width: 1200px) and (max-width: 1600px) {
+
+    .buildings-wrapper{
+        grid-template-columns: repeat(3, 1fr);
+
+    }
+}
+@media screen and (min-width: 800px) and (max-width: 1200px) {
+
+    .buildings-wrapper{
+        grid-template-columns: repeat(3, 1fr);
+
+    }
+}
+@media screen and (min-width: 400px) and (max-width: 800px) {
+
+    .buildings-wrapper{
+        grid-template-columns: repeat(2, 1fr);
+
+    }
+}
+@media screen and (max-width: 400px) {
+
+    .buildings-wrapper{
+        grid-template-columns: repeat(1, 1fr);
+
+    }
+}
+
+/*Responsive styling for everything else*/
+@media screen and (max-width: 800px) {
+
+/*    Change default font sizes*/
+    html{
+        font-size: 5px;
+    }
+    body{
+        font-size: 5px;
+    }
+
+    .uni-stats-wrapper {
+        grid-template-columns: repeat(1, 1fr);
+    }
+    .query-wrapper{
+        grid-template-columns: repeat(1, 1fr);
+        grid-auto-rows: 1fr;
+    }
+}

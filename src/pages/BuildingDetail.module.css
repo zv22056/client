@@ -1,0 +1,47 @@
+.graphs {
+    margin: 3rem auto;
+}
+
+.graphs h2,h3,p {
+    text-align: left;
+}
+.graphs img {
+    display: block;
+    margin-left: 0;
+}
+
+.graphs menu {
+    margin: 1rem 0;
+    padding: 0;
+    display: flex;
+    gap: 0.5rem;
+    list-style: none;
+}
+
+.graphs menu button {
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 6px;
+    background-color: transparent;
+    color: var(--primary-pallete_dark-lime) 0%;
+    font-family: "Roboto Condensed", sans-serif;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
+
+.graphs menu button:hover {
+    background-color: #1b082f;
+    color: darkgreen;
+}
+
+.graphs menu button.active {
+    background-color: #7925d3;
+    color: #ebe7ef;
+}
+/* Color Scheme (Taken from the "Campus Division Look
+and Feel Guidelines"). Global variables are used for maintainability */
+
+
+
+

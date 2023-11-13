@@ -1,0 +1,10 @@
+.list {
+    gap: 1rem;
+    list-style: none;
+}
+
+.list a {
+    text-decoration: none;
+    color: #BED600;
+    text-align: center;
+}

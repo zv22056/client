@@ -1,0 +1,209 @@
+:root {
+    --primary-pallete_dark-lime: #53682B;
+    --primary-pallete_bright-lime: #BED600;
+
+    --secondary-pallete_dark-aqua: #00434F;
+    --secondary-pallete_bright-aqua: #00C0B5;
+
+    --pallete_cool-grey: #E5E6E5;
+    --pallete_white:  #FFFFFF;
+
+    --university_designated-font: 'Arial';
+    --campus-divison_fallback-font: "Arial";
+}
+
+html{
+    /*We use this for rems instead of em, in the case that em breaks*/
+    font-size: 6px;
+}
+/*Default font (if there are no media queries)*/
+body{
+    /*We set this font size very small so we can express all other font
+    sizes in terms of multiples of em easily. We can also change this so we can
+    have more maintainable responsive styling*/
+    font-size: 6px;
+    font-family: var(--university_designated-font),var(--campus-divison_fallback-font);
+
+}
+
+.banner {
+    position: relative;
+
+    width: auto;
+    height: auto;
+
+    /*We use flex over inline-block to allow for responsive web design*/
+    display: flex;
+    flex-direction: column;
+}
+
+
+.banner span {
+    position: absolute;
+    margin-left: 4rem;
+
+    font-weight: bold;
+    /*right padding being 8 rem is important for gradient (when hovering)*/
+    padding: 1rem 8rem 1rem 0;
+    max-width: 100%;
+
+    /*We apply a transform to the paragraph by half of its own height (of the content)
+    This is to make sure they are correctly aligned to (eg 33% and 66% of the banner*/
+    transform: translate(0,-50%);
+
+    /*Some transparency to ensure that the building is more emphasized*/
+    opacity: 60%;
+}
+
+.banner span:hover{
+
+    /*When  hovering over the building name, add a gradient background*/
+    /*over the name such that it is easier to read (over the image)*/
+    background-image: linear-gradient(
+            90deg,
+            var(--primary-pallete_dark-lime) 0%,
+            var(--primary-pallete_dark-lime) 50%,
+            rgba(0,0,0,0) 100%
+    );
+
+    /*Apply transition animations*/
+    opacity: 100%;
+    transition: opacity 0.25s linear;
+}
+
+
+.banner .building-name {
+    font-size: 8em;
+
+    top: 33%;
+}
+
+.banner  .faculty-name {
+    font-size: 6em;
+
+    top: 66%;
+}
+
+.banner img{
+    min-width: 100%;
+}
+
+/*Styling for the main part of the page*/
+.wrapper {
+    position: relative;
+
+    width: auto;
+    height: auto;
+
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.wrapper .group{
+    display: flex;
+    flex-direction: column;
+
+    /* We remove padding to ensure consistent spacing */
+    padding: 0;
+
+}
+
+.wrapper span{
+    display: block;
+}
+
+.wrapper div{
+    padding: 3em;
+}
+
+.wrapper .title{
+    background-color: var(--primary-pallete_dark-lime);
+
+    font-size: 4em;
+    font-weight: bold;
+
+    text-align: center;
+
+    padding: 1em 0 1em 0;
+}
+
+.wrapper .text-body{
+    background-color: var(--pallete_cool-grey);
+    font-size: 3em;
+
+    padding: 1em;
+}
+
+.wrapper img{
+    width: 100%;
+}
+
+/*We make style for the table in the rankings*/
+.wrapper .rank-table{;
+    background-color: var(--pallete_cool-grey);
+    align-items: center;
+
+    /*We make it 90% to establish a hierarchy between the rankings section and
+    the table itself*/
+    width: 90%;
+    padding: 0 5% 0 5%;
+
+    /*If the table overflows, show a scroll bar*/
+    overflow-x: auto;
+}
+
+
+.wrapper .rank-table table{
+    background-color: var(--pallete_white);
+
+    font-size: 2.5em;
+    text-align: center;
+
+    width: 100% ;
+    border: 0.5rem solid black;
+    border-collapse: collapse;
+}
+
+.wrapper .rank-table table th{
+    background-color: var(--primary-pallete_dark-lime);
+    border: 0.25rem solid black;
+    border-bottom: 0.5rem solid black;
+}
+
+.wrapper .rank-table table tr{
+    border: 0.25rem solid black;
+}
+
+/*Responsive Styling*/
+@media screen and (max-width: 768px) {
+    /*We reduce our grid to one column*/
+    .wrapper{
+        grid-template-columns: repeat(1,1fr);
+    }
+
+    html{
+        font-size: 4px;
+    }
+    body{
+        font-size: 4px;
+    }
+
+    .wrapper .rank-table{
+        /*We make it 90% to establish a hierarchy between the rankings section and
+        the table itself*/
+        width: 95%;
+        /*We make the madding smaller such that the table will be wider*/
+        padding: 0 2.5% 0 2.5%;
+    }
+}
+@media screen and (max-width: 400px){
+    /*Adjust the building name and the faculty name for even smaller screens*/
+    .banner .building-name {
+        font-size: 6em;
+        top:30%
+    }
+    .banner  .faculty-name {
+        font-size: 4em;
+        top:70%
+    }
+}
